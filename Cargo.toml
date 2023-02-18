@@ -5,7 +5,7 @@ documentation = "https://docs.rs/crate/pdf-extract/"
 edition = "2021"
 keywords = ["pdf2text", "text", "pdf", "pdf2txt"]
 license = "MIT"
-name = "pdf-extract-temporary-migitation-panic"
+name = "pdf-extract-temporary-mitigation-panic"
 repository = "https://github.com/Endle/pdf-extract/tree/publish"
 version = "0.7.1"
 
