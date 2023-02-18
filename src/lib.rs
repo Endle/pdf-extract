@@ -1259,7 +1259,7 @@ fn show_text(
     output: &mut dyn OutputDev,
 ) -> Res<()> {
     let ts = &mut gs.ts;
-    let font = ts.font.as_ref().unwrap();
+    let font = ts.font.as_ref()?;
     //let encoding = font.encoding.as_ref().map(|x| &x[..]).unwrap_or(&PDFDocEncoding);
     dlog!("{:?}", font.decode(s));
     dlog!("{:?}", font.decode(s).as_bytes());
