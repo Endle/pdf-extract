@@ -13,6 +13,7 @@ use error::{OutputError, Res};
 use euclid::vec2;
 use std::collections::hash_map::Entry;
 use std::collections::HashMap;
+use std::f32::consts::E;
 use std::fmt;
 use std::fs::File;
 use std::marker::PhantomData;
@@ -1259,7 +1260,13 @@ fn show_text(
     output: &mut dyn OutputDev,
 ) -> Res<()> {
     let ts = &mut gs.ts;
-    let font = ts.font.as_ref()?;
+    // let font = ts.font.as_ref().unwrap();
+    let font = match ts.font.as_ref() {
+        None => {
+            return Err(OutputError::Other("font".to_string()));
+        }
+        Some(f) => {f}
+    };
     //let encoding = font.encoding.as_ref().map(|x| &x[..]).unwrap_or(&PDFDocEncoding);
     dlog!("{:?}", font.decode(s));
     dlog!("{:?}", font.decode(s).as_bytes());
